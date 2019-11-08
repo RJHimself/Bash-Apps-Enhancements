@@ -1,4 +1,4 @@
-# ⚡ Bash pps Enhancements
+# ⚡ Bash Apps Enhancements
 
 This is an open source bash library to write scripts with more ease, achieving this by converting commands to more human like syntax.
 
