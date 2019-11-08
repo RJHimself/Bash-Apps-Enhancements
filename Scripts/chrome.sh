@@ -1,9 +1,12 @@
+function GetChromeVersion { GetVersion "$(chromium --version)"; }
+
+
 function InstallChromeDriver { UpdateChromeDriver "$@"; }
 function UpdateChromeDriver {
     local tmpFolder="$(TempFolder)"
     local chromeDriver="/usr/bin/chromedriver"
 
-    local chromeLocalVersion="$(GetVersion_Major "$(chromium --version)")"
+    local chromeLocalVersion="$(GetVersion_Major "$(GetChromeVersion)")"
     local chVersion="$(GetVersion "$(FindLink "https://chromedriver.chromium.org/downloads" "https://chromedriver.storage.googleapis.com/index.html?path=$chromeLocalVersion.*")")"
     local chLink="https://chromedriver.storage.googleapis.com/$chVersion/chromedriver_linux64.zip"
 
