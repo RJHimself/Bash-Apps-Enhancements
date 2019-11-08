@@ -27,4 +27,7 @@ function UpdateChromeDriver {
 
     sudo chown root:root "$chromeDriver"
     sudo chmod +x "$chromeDriver"
+
+
+    echo "Chromedriver Version: $(GetChromeDriverVersion)"
 }
