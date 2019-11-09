@@ -31,3 +31,13 @@ function UpdateChromeDriver {
 
     echo "Chromedriver Version: $(GetChromeDriverVersion)"
 }
+
+
+function chrome_login {
+    local email="$(Trim "$1")"
+    local password="$(Trim "$2")"
+
+    if $(IsAnyEmpty "$email" "$password"); then return; fi
+
+    python -c "from apps_enhancements.web import chrome; chrome.login(email=\"$email\", password=\"$password\")"
+}
