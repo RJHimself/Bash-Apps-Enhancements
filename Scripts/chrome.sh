@@ -39,5 +39,5 @@ function chrome_login {
 
     if $(IsAnyEmpty "$email" "$password"); then echo "Quiting due to lack of arguments\!\!\!" return; fi
 
-    python -c "from apps_enhancements.web import chrome; chrome.login(email=\"$email\", password=\"$password\")"
+    python -c "from apps_enhancements.web.browser import chrome; chrome.login(email=\"$email\", password=\"$password\")"
 }
