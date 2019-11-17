@@ -31,3 +31,23 @@ function UpdateChromeDriver {
 
     echo "Chromedriver Version: $(GetChromeDriverVersion)"
 }
+
+
+function ListChromeProfiles {
+    local location="$(IfTrimNotEmpty "$1" "$HOME/.config/chromium")"
+    local profilesLocations="$(find "$location/"* -maxdepth 0 -type d)"
+    local profileName="/Profile "
+    local profiles
+
+
+    while IFS= read -r line; do
+        local indexOfProfile="$((1+$(IndexOf_Last "/" "$line")))"
+        local profileNumber=$(GetNumberAt_First $indexOfProfile "$line")
+
+        profiles="$profiles"$'\n'"$profileNumber"
+    done <<< "$profilesLocations"
+    profiles="$(SmlCutLines_Empty "$profiles")"
+
+
+    echo "$profiles"
+}
