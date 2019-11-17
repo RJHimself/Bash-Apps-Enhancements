@@ -34,6 +34,7 @@ function UpdateChromeDriver {
 
 
 function GetChromeProfile { SmlGetLine $(Trim "$1") "$(ListChromeProfiles "${@: 2}")"; }
+function GetChromeProfile_First { GetChromeProfile 0 "$@"; }
 function ListChromeProfiles {
     local location="$(IfTrimNotEmpty "$1" "$HOME/.config/chromium")"
     local profilesLocations="$(find "$location/"* -maxdepth 0 -type d)"
